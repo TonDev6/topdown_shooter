@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class ShootScript : MonoBehaviour
 {
-    public float bulletSpeed = 6f;
+    public Transform firePoint;
+    public GameObject bulletPrefab;
 
-    public GameObject firePoint;
+    public float bulletForce = 20f;
 
-    void Update()
+    public bool trigger;
+
+
+    public void Shoot()
     {
-        
+        trigger = true;
+        if (trigger == true)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+
+            trigger = false;
+        }
     }
+
 }

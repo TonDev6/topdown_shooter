@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     
     public float speed = 5f;
     private Rigidbody2D rb;
+    private ShootScript shooting;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+        shooting = GetComponent<ShootScript>();
     }
     
     private void FixedUpdate() {
@@ -25,6 +27,12 @@ public class PlayerController : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
         transform.up = direction;
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            shooting.Shoot();
+        }
+
     }
 
     public void SpeedUpTemp(float speedUp, float time)
