@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class _Bullet : MonoBehaviour
 {
-    public int bulletDamage;
-    public float bulletSpeed;
+    public int bulletDamage = 1;
+    public float bulletSpeed = 20f;
 
-    public float fireRate;
+    public float fireRate = 3f;
 
     private void OnCollisionEnter2D(Collision2D other) {
         Destroy(gameObject);

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class _PlayControl : MonoBehaviour
 {
-    private _ShootControl shooting;
-    private _Bullet bDamage;    
+    public _ShootControl shooting;
+    public _Bullet bDamage;    
     public _HealthShield healthshield;
     public _HS_System hsValues;
 
+    public GameObject weapon;
     
 
     public float speed = 4f;
@@ -20,11 +21,16 @@ public class _PlayControl : MonoBehaviour
         hsValues = GetComponent<_HS_System>();
         bDamage = GetComponent<_Bullet>();
         shooting = GetComponent<_ShootControl>();
+
+        
     }
 
     private void Start() {
         hsValues.health = 5;
         hsValues.shield = 5;
+
+        weapon = transform.GetChild(0).gameObject;
+
     }
     
     private void FixedUpdate() {
@@ -44,7 +50,10 @@ public class _PlayControl : MonoBehaviour
 
         transform.up = direction;
 
-        shooting.Shoot();
+        if (Input.GetMouseButtonDown(0)) {
+            weapon.GetComponent<_ShootControl>().Shoot();
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D other) {

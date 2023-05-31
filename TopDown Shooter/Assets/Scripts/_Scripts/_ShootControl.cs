@@ -10,15 +10,14 @@ public class _ShootControl : MonoBehaviour
     public float bulletForce;
     private float timeToFire;
 
-    private _Bullet bPrefab;
 
     bool trigger = false;
 
 
 
     private void Awake() {
-        bulletForce = bPrefab.bulletSpeed;
-        timeToFire = bPrefab.fireRate;
+        bulletForce = bulletPrefab.gameObject.GetComponent<_Bullet>().bulletSpeed;
+        
     }
 
     private void Update() {
@@ -31,7 +30,7 @@ public class _ShootControl : MonoBehaviour
         {
             trigger = true;
 
-            if (trigger = true && timeToFire <= 0f) {
+            if (trigger == true && timeToFire <= 0f) {
                 GameObject projectile = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
                 Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
