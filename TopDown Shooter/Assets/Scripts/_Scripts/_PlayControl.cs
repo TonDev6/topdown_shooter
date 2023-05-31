@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class _PlayControl : MonoBehaviour
 {
-    private ShootScript shooting;
-
-
-
-    
+    private _ShootControl shooting;
+    private _Bullet bDamage;    
     public _HealthShield healthshield;
     public _HS_System hsValues;
+
+    
 
     public float speed = 4f;
     private Rigidbody2D rb;
@@ -19,8 +18,8 @@ public class _PlayControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         healthshield = GetComponent<_HealthShield>();
         hsValues = GetComponent<_HS_System>();
-
-        shooting = GetComponent<ShootScript>();
+        bDamage = GetComponent<_Bullet>();
+        shooting = GetComponent<_ShootControl>();
     }
 
     private void Start() {
@@ -45,14 +44,12 @@ public class _PlayControl : MonoBehaviour
 
         transform.up = direction;
 
-        if (Input.GetButtonDown("Fire1")) {
-            shooting.Shoot();
-        }
+        shooting.Shoot();
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Bullet")) {
-            hsValues.Damage(1);
+            hsValues.Damage(bDamage.bulletDamage);
         }
     }
 }
