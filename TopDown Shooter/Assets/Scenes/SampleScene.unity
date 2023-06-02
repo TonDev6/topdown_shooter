@@ -540,7 +540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82597525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.96, z: 0}
+  m_LocalPosition: {x: 0.19, y: 1.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1196,7 +1196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.02, y: -0.65}
+  m_AnchoredPosition: {x: 0.06, y: -0.85}
   m_SizeDelta: {x: 194.3795, y: 77.4113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &532880607
@@ -3119,8 +3119,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528483385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.61, z: 0}
-  m_LocalScale: {x: 0.17, y: 0.36, z: 1}
+  m_LocalPosition: {x: 0.21, y: 0.91, z: 0}
+  m_LocalScale: {x: 0.078625, y: 0.31050003, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1528561233}
@@ -3168,7 +3168,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: a491e7084e7eb9447809a20e0c9deb39, type: 3}
-  m_Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3204,10 +3204,10 @@ GameObject:
   - component: {fileID: 1528561233}
   - component: {fileID: 1528561232}
   - component: {fileID: 1528561231}
-  - component: {fileID: 1528561230}
   - component: {fileID: 1528561235}
   - component: {fileID: 1528561237}
   - component: {fileID: 1528561236}
+  - component: {fileID: 1528561238}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3215,32 +3215,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &1528561230
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528561228}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &1528561231
 Rigidbody2D:
   serializedVersion: 4
@@ -3303,7 +3277,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 7482667652216324306, guid: a491e7084e7eb9447809a20e0c9deb39, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59c4f08852b3d534c86f893ffc7fc9b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3321,10 +3295,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528561228}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.09, y: 0.63, z: 0}
+  m_LocalScale: {x: 0.81528944, y: 0.81528944, z: 0.81528944}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1528483386}
   - {fileID: 82597526}
@@ -3344,10 +3318,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooting: {fileID: 0}
-  bDamage: {fileID: 0}
   healthshield: {fileID: 0}
   hsValues: {fileID: 0}
-  weapon: {fileID: 0}
+  weapon: {fileID: 1528483385}
+  projPrefab: {fileID: 0}
+  fireRate: 0
+  timeToFire: 0
+  bDamage: 0
   speed: 6
 --- !u!114 &1528561236
 MonoBehaviour:
@@ -3400,6 +3377,22 @@ MonoBehaviour:
   - {fileID: 573037880}
   - {fileID: 1798131628}
   hsCount: {fileID: 0}
+--- !u!58 &1528561238
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528561228}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09672219, y: -0.11414945}
+  serializedVersion: 2
+  m_Radius: 0.8625947
 --- !u!1 &1570514115
 GameObject:
   m_ObjectHideFlags: 0

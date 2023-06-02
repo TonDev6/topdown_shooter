@@ -7,42 +7,19 @@ public class _ShootControl : MonoBehaviour
     public Transform firePoint;
     
     public GameObject bulletPrefab;
-    public float bulletForce;
-    private float timeToFire;
+    public float bulletForce = 0f;
+    
 
-
-    bool trigger = false;
-
-
-
-    private void Awake() {
-        bulletForce = bulletPrefab.gameObject.GetComponent<_Bullet>().bulletSpeed;
+    private void Start() {
         
-    }
 
-    private void Update() {
-        Shoot();
+        bulletForce = bulletPrefab.gameObject.GetComponent<_Bullet>().bulletSpeed;
     }
-
 
     public void Shoot() {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            trigger = true;
+        GameObject projectile = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-            if (trigger == true && timeToFire <= 0f) {
-                GameObject projectile = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
-                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-                rb. AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-
-                trigger = false;
-            } else {
-                timeToFire -= Time.deltaTime;
-            }
-        }
-
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb. AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
-
-
 }

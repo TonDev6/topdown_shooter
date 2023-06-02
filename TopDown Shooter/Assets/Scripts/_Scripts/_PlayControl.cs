@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class _PlayControl : MonoBehaviour
 {
-    public _ShootControl shooting;
-    public _Bullet bDamage;    
-    public _HealthShield healthshield;
+    [SerializeField] private _ShootControl shooting;
+    [SerializeField] private _HealthShield healthshield;
     public _HS_System hsValues;
 
-    public GameObject weapon;
+    [SerializeField] private GameObject weapon;
+    [SerializeField] private GameObject projPrefab;
+
+
+    public float fireRate;
+    public float timeToFire = 0f;
+    public int bDamage;
+
+
     
 
     public float speed = 4f;
@@ -19,18 +26,19 @@ public class _PlayControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         healthshield = GetComponent<_HealthShield>();
         hsValues = GetComponent<_HS_System>();
-        bDamage = GetComponent<_Bullet>();
-        shooting = GetComponent<_ShootControl>();
+        weapon = transform.GetChild(0).gameObject;
+        shooting = weapon.GetComponent<_ShootControl>();
 
-        
+        projPrefab = shooting.bulletPrefab;
+
+        bDamage = projPrefab.gameObject.GetComponent<_Bullet>().bulletDamage;
+
+        fireRate = projPrefab.gameObject.GetComponent<_Bullet>().fireRate;
     }
 
     private void Start() {
-        hsValues.health = 5;
-        hsValues.shield = 5;
-
-        weapon = transform.GetChild(0).gameObject;
-
+        hsValues.health = 10;
+        hsValues.shield = 0;
     }
     
     private void FixedUpdate() {
@@ -50,15 +58,21 @@ public class _PlayControl : MonoBehaviour
 
         transform.up = direction;
 
-        if (Input.GetMouseButtonDown(0)) {
-            weapon.GetComponent<_ShootControl>().Shoot();
+        if (timeToFire <= 0f) {
+            if(Input.GetMouseButtonDown(0)){
+            shooting.Shoot();
+
+            timeToFire = fireRate;
+            }
+        } else {
+            timeToFire -= Time.deltaTime;
         }
 
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Bullet")) {
-            hsValues.Damage(bDamage.bulletDamage);
+            hsValues.Damage(bDamage);
         }
     }
 }
