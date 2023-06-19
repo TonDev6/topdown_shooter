@@ -9,13 +9,7 @@ public class _HS_System : MonoBehaviour
     public int shield, maxShield = 10;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (health > maxHealth) health = maxHealth;

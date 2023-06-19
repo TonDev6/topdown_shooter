@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class _PlayControl : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class _PlayControl : MonoBehaviour
     [SerializeField] private _HealthShield healthshield;
     public _HS_System hsValues;
 
-    [SerializeField] private GameObject weapon;
-    [SerializeField] private GameObject projPrefab;
+    public GameObject weapon;
+    public GameObject projPrefab;
 
 
     public float fireRate;
@@ -28,9 +29,7 @@ public class _PlayControl : MonoBehaviour
         shooting = weapon.GetComponent<_ShootControl>();
 
         projPrefab = shooting.bulletPrefab;
-
         bDamage = projPrefab.gameObject.GetComponent<_Bullet>().bulletDamage;
-
         fireRate = projPrefab.gameObject.GetComponent<_Bullet>().fireRate;
     }
 
@@ -48,7 +47,7 @@ public class _PlayControl : MonoBehaviour
         transform.position = transform.position + move * speed * Time.deltaTime;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -66,6 +65,10 @@ public class _PlayControl : MonoBehaviour
         } else {
             timeToFire -= Time.deltaTime;
         }
+
+        projPrefab = shooting.bulletPrefab;
+        bDamage = projPrefab.gameObject.GetComponent<_Bullet>().bulletDamage;
+        fireRate = projPrefab.gameObject.GetComponent<_Bullet>().fireRate;
 
     }
 

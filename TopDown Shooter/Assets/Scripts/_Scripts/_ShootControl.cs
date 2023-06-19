@@ -12,7 +12,12 @@ public class _ShootControl : MonoBehaviour
 
     private void Start() {
         
+        bulletPrefab = this.gameObject.GetComponent<_WpnSelectSys>().selectedWeapon;
+        bulletForce = bulletPrefab.gameObject.GetComponent<_Bullet>().bulletSpeed;
+    }
 
+    private void Update() {
+        bulletPrefab = this.gameObject.GetComponent<_WpnSelectSys>().selectedWeapon;
         bulletForce = bulletPrefab.gameObject.GetComponent<_Bullet>().bulletSpeed;
     }
 
