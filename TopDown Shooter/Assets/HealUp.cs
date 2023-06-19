@@ -7,7 +7,7 @@ public class HealUp : MonoBehaviour
     public _PlayControl player;
     
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Bullet")) {
             player.hsValues.Heal(1);
         }

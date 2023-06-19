@@ -3203,11 +3203,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1528561233}
   - component: {fileID: 1528561232}
-  - component: {fileID: 1528561231}
   - component: {fileID: 1528561235}
   - component: {fileID: 1528561237}
   - component: {fileID: 1528561236}
   - component: {fileID: 1528561238}
+  - component: {fileID: 1528561239}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3215,27 +3215,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &1528561231
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528561228}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &1528561232
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3393,6 +3372,27 @@ CircleCollider2D:
   m_Offset: {x: -0.09672219, y: -0.11414945}
   serializedVersion: 2
   m_Radius: 0.8625947
+--- !u!50 &1528561239
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528561228}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000000
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1570514115
 GameObject:
   m_ObjectHideFlags: 0

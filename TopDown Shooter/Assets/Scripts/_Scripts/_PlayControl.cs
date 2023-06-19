@@ -20,10 +20,8 @@ public class _PlayControl : MonoBehaviour
     
 
     public float speed = 4f;
-    private Rigidbody2D rb;
     
     private void Awake() {
-        rb = GetComponent<Rigidbody2D>();
         healthshield = GetComponent<_HealthShield>();
         hsValues = GetComponent<_HS_System>();
         weapon = transform.GetChild(0).gameObject;
@@ -45,8 +43,9 @@ public class _PlayControl : MonoBehaviour
         float xMove = Input.GetAxis("Horizontal");
         float yMove = Input.GetAxis("Vertical");
 
-        Vector2 move = new Vector2(xMove, yMove);
-        rb.velocity = move * speed;
+        Vector3 move = new Vector3(xMove, yMove, 0f);
+
+        transform.position = transform.position + move * speed * Time.deltaTime;
     }
 
     // Update is called once per frame
@@ -70,7 +69,7 @@ public class _PlayControl : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Bullet")) {
             hsValues.Damage(bDamage);
         }
